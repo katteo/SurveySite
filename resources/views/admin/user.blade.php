@@ -29,7 +29,7 @@
 			    <div class="col-md-4">
 			        <div class="ibox float-e-margins">
 			            <div class="ibox-title">
-			                <h5>Profile Detail</h5>
+			                <h5>Perfil</h5>
 			            </div>
 			            <div>
 			            <div class="ibox-content no-padding border-left-right">
@@ -52,13 +52,11 @@
 			<!-- USER ACTIVITY, FAVORITES & DO LATERS -->
 			<div class="col-lg-8">
                 <div class="panel">
-
                     <div class="panel-heading">
                         <div class="panel-options">
-
                             <ul class="nav nav-tabs">
-								<li class="active"><a aria-expanded="false" data-toggle="tab" href="#tab-issues">User Created Issues</a></li>
-                                <li class=""><a aria-expanded="true" data-toggle="tab" href="#tab-1">Activities</a></li>
+								<li class="active"><a aria-expanded="false" data-toggle="tab" href="#tab-issues">Encuestas creadas</a></li>
+                                <li class=""><a aria-expanded="true" data-toggle="tab" href="#tab-1">Actividades</a></li>
                             </ul>
                         </div>
                     </div>
@@ -75,7 +73,7 @@
     								@forelse ($activities as $activity)
     								    @include('admin.items.activity_list_item')
     								@empty
-    								    @include('admin.items.activity_list_none')
+    								    @include('admin.items.activity_list_item_none')
     								@endforelse
 		                            
 		                        </div>	

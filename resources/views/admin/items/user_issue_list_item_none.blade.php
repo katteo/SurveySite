@@ -1,5 +1,5 @@
 <div class="feed-element">
     <div class="media-body ">
-        <strong>No user created issues currently</strong>
+        <strong>Ningun usuario ha creado encuestas recientemente</strong>
     </div>
 </div>

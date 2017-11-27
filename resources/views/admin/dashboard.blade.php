@@ -17,8 +17,8 @@
 	                showMethod: 'slideDown',
 	                timeOut: 4000
 	            };
-	            toastr.success('Test Notification message', 'SurveySayz');
-	            toastr.success('2nd test', 'Yo yo');
+	            //toastr.success('Test Notification message', 'SurveySayz');
+	            //toastr.success('2nd test', 'Yo yo');
 	        }, 1300);
 	    });
 	</script>

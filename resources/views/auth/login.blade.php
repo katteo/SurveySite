@@ -24,20 +24,25 @@
             <div>
                 <h3 class="logo-name">SS</h1>
             </div>
-            <h3>Login to SurveySayz</h3>
+            <h3>Inicio de Sesion</h3>
+            @if (session('status'))
+			<div class="alert alert-success">
+				{{ session('status') }}
+			</div>
+			@endif
             <form class="m-t" role="form" method="post" action="{{ url('/login') }}">
                 {!! csrf_field() !!}
                 <div class="form-group">
-                    <input name="email" id="email" value="{{ old('email') }}" type="text" class="form-control" placeholder="Username" required="">
+                    <input name="email" id="email" value="{{ old('email') }}" type="text" class="form-control" placeholder="Usuario" required>
                 </div>
                 <div class="form-group">
-                    <input name="password" id="password" type="password" class="form-control" placeholder="Password" required="">
+                    <input name="password" id="password" type="password" class="form-control" placeholder="Contraseña" required>
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                <button type="submit" class="btn btn-primary block full-width m-b">Ingresar</button>
 
-                <a href="#"><small>Forgot password?</small></a>
-                <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" href="{{ url('/register') }}">Create an account</a>
+                <a href="#"><small>Olvidaste tu password?</small></a>
+                <p class="text-muted text-center"><small>No tienes una cuenta?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="{{ url('/register') }}">Registrate</a>
             </form>
         </div>
     </div>

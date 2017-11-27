@@ -1,14 +1,18 @@
-<div class="issue-list-item" id="issue_{{ $issue->id }}">
-    <p class="issue-list-item-title">
-        <a class="issue-list-item-title loggedin" href="{{ url('/issues/') }}/{{ $issue->id }}">{{ $issue->title }}</a>
-    </p>
-    <p class="issue-list-item-tagline">
-        last response <time title="Wed Jun 17 15:57:06 2015 UTC" datetime="2015-06-17T15:57:06+00:00" class="live-timestamp">TIME</time> by <a href="#" class="author">user</a>
-    </p>
-    <p class="issue-list-item-tagline">
-        created by <a href="#" class="author">{{ formatUsername($issue->created_by_id) }}</a>
-    </p>
-    <ul class="issue-list-item-flat">
-        <li class="issue-list-item-flat-li"><a href="#"> # responses</a></li>
-    </ul>
+<div class="col-lg-6">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{ $issue->title }}</h3>
+		</div>
+		<div class="panel-body">
+			<p>{{ $issue->motive }}</p>
+		</div>
+		<div class="panel-footer">
+			@if ($issue->title)
+			<a type="button" class="btn btn-sm btn-primary" href="{{ url('/issues/') }}/{{ $issue->id }}">Comenzar</a>
+			<button type="button" class="btn btn-sm btn-danger">Omitir</button>
+			@else
+			<button type="button" class="btn btn-sm btn-success disabled">Completada</button>
+			@endif
+		</div>
+	</div>
 </div>

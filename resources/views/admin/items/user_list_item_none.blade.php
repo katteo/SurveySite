@@ -1,3 +1,3 @@
 <tr>
-    <td colspan="5">Currently no users of this type</td>
+    <td colspan="5">Actualmente no hay ningun usuario de este tipo registrado</td>
 </tr>

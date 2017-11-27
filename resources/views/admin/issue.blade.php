@@ -42,10 +42,10 @@
                 <div class="row m-t-md">
                     <div class="col-lg-12">
                         <dl class="dl-horizontal">
-                            <dt>Status:</dt> <dd><strong>{{ ucfirst($issue->status) }}</strong></dd>
-                            <dt>Created by:</dt> <dd><a href="{{ url('/admin/users') }}/{{ $issue->created_by_id }}">{{ formatUsername($issue->created_by_id) }}</a></dd>
-                            <dt>Last Updated:</dt> <dd><li class="fa fa-clock-o"></li> {{ $issue->updated_at->format('h:m a - m.d.Y') }}</dd>
-                            <dt>Created:</dt> <dd><li class="fa fa-clock-o"></li> {{ $issue->created_at->format('h:m a - m.d.Y') }}</dd>
+                            <dt>Estado:</dt> <dd><strong>{{ ucfirst($issue->status) }}</strong></dd>
+                            <dt>Creado por:</dt> <dd><a href="{{ url('/admin/users') }}/{{ $issue->created_by_id }}">{{ formatUsername($issue->created_by_id) }}</a></dd>
+                            <dt>Ultima actualizacion:</dt> <dd><li class="fa fa-clock-o"></li> {{ $issue->updated_at->format('h:m a - m.d.Y') }}</dd>
+                            <dt>Creado:</dt> <dd><li class="fa fa-clock-o"></li> {{ $issue->created_at->format('h:m a - m.d.Y') }}</dd>
                         </dl>
                     </div>
                 </div>
@@ -57,9 +57,9 @@
                             <div class="panel-heading">
                                 <div class="panel-options">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab-2" data-toggle="tab">Questions</a></li>
-                                        <li><a href="#tab-info" data-toggle="tab">Info</a></li>
-                                        <li><a href="#tab-3" data-toggle="tab">Issue activity</a></li>
+                                        <li class="active"><a href="#tab-2" data-toggle="tab">Preguntas</a></li>
+                                        <li><a href="#tab-info" data-toggle="tab">Detalles</a></li>
+                                        <li><a href="#tab-3" data-toggle="tab">Actividad</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -70,9 +70,8 @@
 									<!-- TAB INFO -->
 									<div id="tab-info" class="tab-pane">
 										<div class="m-t-md">
-										<p><strong>NOTE: This should be be viewable, then editable after clicknig a button.</strong></p>
 				                            <form method="get" class="form-horizontal">
-				                                <div class="form-group"><label class="col-sm-2 control-label">Title</label>
+				                                <div class="form-group"><label class="col-sm-2 control-label">Titulo</label>
 				                                    <div class="col-sm-10">
     				                                    <input name="title" class="form-control" type="text" value="{{ $issue->title }}" @if ($editable == false) disabled @endif>
     				                                </div>
@@ -89,18 +88,16 @@
 				                                    </div>
 				                                </div>  
 				                                <div class="hr-line-dashed"></div>
-				                                <div class="form-group"><label class="col-sm-2 control-label">Motive</label>
+				                                <div class="form-group"><label class="col-sm-2 control-label">Motivo</label>
 				                                    <div class="col-sm-10">
 					                                    <textarea name="motive" class="form-control" type="text" rows="10" @if ($editable == false) disabled @endif>{{ $issue->motive }}</textarea>
-					                                    <span class="help-block m-b-none">The description of the Issue.</span>
 				                                    </div>
 				                                </div>
 				                                <div class="hr-line-dashed"></div>
 				                                <div class="form-group">
 				                                    <div class="col-sm-4 col-sm-offset-2">
-					                                    <button class="btn btn-white" type="submit">Edit</button> -->
-				                                        <button class="btn btn-white" type="submit">Cancel</button>
-				                                        <button class="btn btn-primary" type="submit">Save changes</button>
+				                                        <button class="btn btn-white" type="submit">Cancelar</button>
+				                                        <button class="btn btn-primary" type="submit">Guardar cambios</button>
 				                                    </div>
 				                                </div>
 				                            </form>
@@ -120,13 +117,13 @@
 												<input type="hidden" name="issueId" value="{{ $issue->id }}">
 					                            <div class="row wrapper m-t-sm m-b-sm">
 													<label class="radio-inline">
-													  <input type="radio" name="questionType" id="questionType" value="single_choice" checked> Single Choice
+													  <input type="radio" name="questionType" id="questionType" value="single_choice" checked> Seleccion simple
 													</label>
 													<label class="radio-inline">
-													  <input type="radio" name="questionType" id="questionType" value="multiple_choice"> Multiple Choice
+													  <input type="radio" name="questionType" id="questionType" value="multiple_choice"> Seleccion multiple
 													</label>
 													<label class="radio-inline">
-													  <input type="radio" name="questionType" id="questionType" value="essay"> Essay
+													  <input type="radio" name="questionType" id="questionType" value="essay"> Ensayo
 													</label>
 					                            </div> 
 					                            
@@ -134,9 +131,9 @@
 												<div class="row m-b-lg">
 												  <div class="col-lg-12">
 												    <div class="input-group">
-												      <input name="question" id="questionInput" type="text" class="form-control" placeholder="Enter question...">
+												      <input name="question" id="questionInput" type="text" class="form-control" placeholder="Ingresa una pregunta...">
 												      <span class="input-group-btn">
-												        <button id="btnAddQuestion" class="btn btn-primary" type="button">Add</button>
+												        <button id="btnAddQuestion" class="btn btn-primary" type="button">Agregar</button>
 												      </span>
 												    </div><!-- /input-group -->
 												  </div><!-- /.col-lg-12 -->
@@ -168,10 +165,10 @@
 	                                    <table class="table table-striped">
 	                                        <thead>
 	                                        <tr>
-	                                            <th>Action</th>
-	                                            <th>User</th>
-	                                            <th>Date</th>
-	                                            <th>Notes</th>
+	                                            <th>Accion</th>
+	                                            <th>Usuario</th>
+	                                            <th>Fecha</th>
+	                                            <th>Notas</th>
 	                                        </tr>
 	                                        </thead>
 	                                        <tbody>
@@ -179,9 +176,9 @@
 		                                    <!-- ISSUE ACTIVITY LIST ITEM -->
 	                                        <tr>
 	                                            <td>
-	                                               Issue Created
+	                                               Encuesta creada
 	                                            </td>
-	                                            <td><a href="user_profile.html">allKindsOfIssues</a></td>
+	                                            <td><a href="{{ url('/admin/users') }}/{{ auth()->user()->id }}">{{ auth()->user()->username }}</a></td>
 	                                            <td>07.16.2015 <i class="fa fa-clock-o"></i> 10:10:1</td>
 	                                            <td>
 	                                            <p class="small">

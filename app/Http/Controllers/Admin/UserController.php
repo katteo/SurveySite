@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Validator;
+
 
 class UserController extends Controller
 {
@@ -106,5 +111,40 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function postRegister(Request $request)
+    {
+        // $validator = $this->validator($request->all());
+
+        // if ($validator->fails()) {
+        //     Log::info("Entrando en fails");
+        //     $this->throwValidationException(
+        //         $request, $validator
+        //     );
+        // }
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|unique:users',
+            'username' => 'required|unique:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/register')
+                        ->withErrors($validator)
+                        ->withInput();
+        } 
+
+        $user = new User;
+        $user->username = $request['username'];
+        $user->email = $request['email'];
+        $user->role = 'user';
+        $user->password = bcrypt($request['password']);
+
+        $value = $user->save();
+
+
+
+        return redirect('/login')->with('status', 'Usuario registrado correctamente');
     }
 }

@@ -18,10 +18,10 @@
                 <a href="/">Dashboard</a>
             </li>
             <li>
-                <a href="/issues">Issues</a>
+                <a href="/issues">Encuestas</a>
             </li>
             <li class="active">
-            	<strong>Add Issue</strong>
+            	<strong>Agregar encuestas</strong>
             </li>
         </ol>
     </div>
@@ -32,31 +32,31 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>New Issue form</h5>
+                    <h5>Nueva encuesta</h5>
                 </div>
                 <div class="ibox-content">
                     <form id="add-issue-form" method="post" action="{{ url('/admin/issues/add') }}" class="form-horizontal">
                         
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Title</label>
+                            <label class="col-sm-2 control-label">Titulo</label>
                             <div class="col-sm-10">
-                                <input id="title" name="title" type="text" class="form-control" placeholder="Enter title..">
+                                <input id="title" name="title" type="text" class="form-control" placeholder="Titulo">
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Motive</label>
+                            <label class="col-sm-2 control-label">Motivo</label>
                             <div class="col-sm-10">
-                                <textarea id="motive" name="motive" class="form-control" rows="6" placeholder="Type your motive.."></textarea>
+                                <textarea id="motive" name="motive" class="form-control" rows="6" placeholder="Motivo de la encuesta"></textarea>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                                                 
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <button class="btn btn-white" type="submit">Cancel</button>
-                                <button class="btn btn-primary" type="submit">Save changes</button>
+                                <button class="btn btn-white" type="submit">Cancelar</button>
+                                <button class="btn btn-primary" type="submit">Crear</button>
                             </div>
                         </div>
                     </form>

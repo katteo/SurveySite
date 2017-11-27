@@ -21,7 +21,7 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
 Route::get('/register', 'Auth\AuthController@getRegister');
-Route::post('/register', 'Auth\AuthController@postRegister');
+Route::post('/register', 'Admin\UserController@postRegister');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function() {
     
@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
     Route::group(['prefix' => 'users', 'middleware' => 'auth.admin'], function() {
         get('/', 'UserController@showList');
         get('/add', 'UserController@create');
+        post('/store', 'UserController@store');
         get('/type/{user_role}', 'UserController@showListByRole');
         get('{user_id}', 'UserController@show');
     });

@@ -28,12 +28,12 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             @if (Auth::check())
-                                <li><a href="{{ url('/logout') }}"><span class="fa fa-sign-out"></span> Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><span class="fa fa-sign-out"></span> Cerrar Session</a></li>
                                 @if (Auth::user()->role != 'user')
                                     <li><a href="{{ url('/admin') }}"><span class="fa fa-cog"></span> Admin</a></li>
                                 @endif
                             @else
-                                <li><a href="{{ url('/login') }}"><span class="fa fa-sign-in"></span> Login</a></li>
+                                <li><a href="{{ url('/login') }}"><span class="fa fa-sign-in"></span> Iniciar Session</a></li>
                             @endif
                         </ul>
                     </div>

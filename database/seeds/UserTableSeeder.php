@@ -15,8 +15,8 @@ class UserTableSeeder extends Seeder
         
         DB::table('users')->insert([
             'user_status'   => 'active',
-            'username'      => 'allKindsOfIssues',
-            'email'         => 'mmaser@fakedomain.com',
+            'username'      => 'admin',
+            'email'         => 'admin@surveysayz.com',
             'role'          => 'admin',
             'password'      => bcrypt('somesecret'),
             'first_name'    => 'Mike',
@@ -26,10 +26,11 @@ class UserTableSeeder extends Seeder
             'created_at'    => date('Y-m-d H:m:s'),
             'updated_at'    => date('Y-m-d H:m:s')
         ]);  
+        
         DB::table('users')->insert([
             'user_status'   => 'active',
-            'username'      => 'csFlood',
-            'email'         => 'pflood@fakedomain.com',
+            'username'      => 'user',
+            'email'         => 'user@surveysayz.com',
             'role'          => 'user',
             'password'      => bcrypt('somesecret'),
             'first_name'    => 'Peter',
@@ -39,10 +40,11 @@ class UserTableSeeder extends Seeder
             'created_at'    => date('Y-m-d H:m:s'),
             'updated_at'    => date('Y-m-d H:m:s')
         ]);
+
         DB::table('users')->insert([
             'user_status'   => 'active',
-            'username'      => 'CelticConnor',
-            'email'         => 'sConnor@fakedomain.com',
+            'username'      => 'contributor',
+            'email'         => 'contributor@surveysayz.com',
             'role'          => 'contributor',
             'password'      => bcrypt('somesecret'),
             'first_name'    => 'Sarah',
