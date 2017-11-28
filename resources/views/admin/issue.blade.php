@@ -70,7 +70,12 @@
 									<!-- TAB INFO -->
 									<div id="tab-info" class="tab-pane">
 										<div class="m-t-md">
-				                            <form method="get" class="form-horizontal">
+											@if (session('status'))
+											<div class="alert alert-success">
+												{{ session('status') }}
+											</div>
+											@endif
+				                            <form method="post" class="form-horizontal" action="{{ url('/admin/issues/update') }}/{{ $issue->id }}">
 				                                <div class="form-group"><label class="col-sm-2 control-label">Titulo</label>
 				                                    <div class="col-sm-10">
     				                                    <input name="title" class="form-control" type="text" value="{{ $issue->title }}" @if ($editable == false) disabled @endif>
@@ -108,41 +113,63 @@
             
 									<!-- TAB 2 -->
 									<div class="tab-pane active" id="tab-2">
-										<div class="col-lg-12">
+										<div class="m-t-md">
 											<div class="ibox ">  
-					                            
+					                             @if (session('status'))
+												<div class="alert alert-success">
+													{{ session('status') }}
+												</div>
+												@endif
 					                            @if ($editable == true)
-												<form id="frmAddQuestion" method="post" action="{{ url('/api/v1/admin/question') }}">
+												<form id="frmAddQuestion" class="form-horizontal" method="post" action="{{ url('/admin/questions/add')}}">
 												{!! csrf_field() !!}
-												<input type="hidden" name="issueId" value="{{ $issue->id }}">
-					                            <div class="row wrapper m-t-sm m-b-sm">
-													<label class="radio-inline">
-													  <input type="radio" name="questionType" id="questionType" value="single_choice" checked> Seleccion simple
-													</label>
-													<label class="radio-inline">
-													  <input type="radio" name="questionType" id="questionType" value="multiple_choice"> Seleccion multiple
-													</label>
-													<label class="radio-inline">
-													  <input type="radio" name="questionType" id="questionType" value="essay"> Ensayo
-													</label>
-					                            </div> 
-					                            
-					                            <!-- ADD QUESTION INPUT GROUP -->
-												<div class="row m-b-lg">
-												  <div class="col-lg-12">
-												    <div class="input-group">
-												      <input name="question" id="questionInput" type="text" class="form-control" placeholder="Ingresa una pregunta...">
-												      <span class="input-group-btn">
-												        <button id="btnAddQuestion" class="btn btn-primary" type="button">Agregar</button>
-												      </span>
-												    </div><!-- /input-group -->
-												  </div><!-- /.col-lg-12 -->
-												</div><!-- /.row -->
-					                            <!-- END QUESTION INPUT GROUP -->
+												<input type="hidden" name="issue_id" value="{{ $issue->id }}">
+					                            					                            
+					                            <div class="form-group">
+													<label class="col-sm-2 control-label">Pregunta</label>
+				                                    <div class="col-sm-10">
+    				                                    <input name="question" class="form-control" type="text" required>
+    				                                </div>
+				                                </div>
+
+												<div class="form-group"><label class="col-sm-2 control-label">Respuesta #1</label>
+													
+				                                    <div class="col-sm-10">
+    				                                    <input name="answer" class="form-control" type="text" required>
+    				                                </div>
+				                                </div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Respuesta #2</label>
+				                                    <div class="col-sm-10">
+    				                                    <input name="answer1" class="form-control" type="text" required>
+    				                                </div>
+				                                </div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Respuesta #3</label>
+				                                    <div class="col-sm-10">
+    				                                    <input name="answer2" class="form-control" type="text" required>
+    				                                </div>
+				                                </div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Respuesta #4</label>
+				                                    <div class="col-sm-10">
+    				                                    <input name="answer3" class="form-control" type="text" required>
+    				                                </div>
+				                                </div>
+
+												<div class="form-group">
+				                                    <div class="col-sm-4 col-sm-offset-2">
+				                                        <button class="btn btn-primary" type="submit">Crear</button>
+				                                    </div>
+				                                </div>
+
 												</form>
 					                            @endif
 
-												<!-- NESTABLE SORTABLE LIST -->
+												{{--  <!-- NESTABLE SORTABLE LIST -->
 					                            <div class="dd" id="nestable2" data-issue="{{ $issue->id }}">
 					                                <ol class="dd-list">
                                                         @forelse ($questions as $question)
@@ -152,7 +179,7 @@
                                                         @endforelse
 					                                </ol>
 					                            </div>
-					                            <!-- END NESTABLE SORTABLE LIST -->
+					                            <!-- END NESTABLE SORTABLE LIST -->  --}}
 
         									</div>
     									</div>

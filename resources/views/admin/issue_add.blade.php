@@ -33,14 +33,20 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Nueva encuesta</h5>
-                </div>
+                </div>        
                 <div class="ibox-content">
-                    <form id="add-issue-form" method="post" action="{{ url('/admin/issues/add') }}" class="form-horizontal">
-                        
+                    @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+                    <form id="add-issue-form" method="post" action="{{ url('/admin/issues/store') }}" class="form-horizontal">
+                        {!! csrf_field() !!}
+                        <input  name="created_by_id" type="hidden" value="{{Auth::user()->id}}">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Titulo</label>
                             <div class="col-sm-10">
-                                <input id="title" name="title" type="text" class="form-control" placeholder="Titulo">
+                                <input id="title" name="title" type="text" class="form-control" placeholder="Titulo" required>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
@@ -48,15 +54,14 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Motivo</label>
                             <div class="col-sm-10">
-                                <textarea id="motive" name="motive" class="form-control" rows="6" placeholder="Motivo de la encuesta"></textarea>
+                                <textarea id="motive" name="motive" class="form-control" rows="6" placeholder="Motivo de la encuesta" required></textarea>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                                                 
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <button class="btn btn-white" type="submit">Cancelar</button>
-                                <button class="btn btn-primary" type="submit">Crear</button>
+                                <button class="btn btn-primary" id="submitForm" type="submit">Crear</button>
                             </div>
                         </div>
                     </form>
@@ -73,7 +78,7 @@
 	<script src="/js/plugins/validate/jquery.validate.js"></script>
 	
     <script>
-        $(document).ready(function() {
+       /* $(document).ready(function() {
             
             $("#submitForm").on('click', function() {
                 var form = $("#add-issue-form");
@@ -98,13 +103,13 @@
                 },
                 messages: {
                     title: {
-                        required: "Please enter a title"
+                        required: "Por favor, ingrese un titulo"
                     },
                     motive: {
-                        required: "Please enter a motive"
+                        required: "Por favor, especifique el motivo"
                     }
                 }
             });
-       });
+       });*/
     </script>
 @endsection

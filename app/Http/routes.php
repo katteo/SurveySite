@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', 'Main\MainController@index');
-Route::get('/issues/{issue_id}', 'Main\MainController@show');
+
 
 // Authentication routes...
 Route::get('/login', 'Auth\AuthController@getLogin');
@@ -23,6 +22,12 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Admin\UserController@postRegister');
 
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/', 'Main\MainController@index');
+    Route::get('/issues/{issue_id}', 'Main\MainController@show');
+    Route::post('/issues/save/response', 'Admin\IssueController@saveResponse');
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin'], function() {
     
     get('/', 'AdminController@index');
@@ -32,6 +37,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
         get('/add', 'IssueController@create');
         get('/status/{issue_status}', 'IssueController@showListByStatus'); 
         get('/{issue_id}', 'IssueController@show');
+        post('/store', 'IssueController@store');
+        post('/update/{issue_id}', 'IssueCOntroller@update');
+        
+    });
+
+    Route::group(['prefix' => 'questions'], function() {
+        Route::post('/add', 'QuestionController@store');
     });
     
     Route::group(['prefix' => 'users', 'middleware' => 'auth.admin'], function() {

@@ -7,12 +7,10 @@
 			<p>{{ $issue->motive }}</p>
 		</div>
 		<div class="panel-footer">
-			@if ($issue->title)
+			@if (Auth::user()->role != 'admin')
 			<a type="button" class="btn btn-sm btn-primary" href="{{ url('/issues/') }}/{{ $issue->id }}">Comenzar</a>
-			<button type="button" class="btn btn-sm btn-danger">Omitir</button>
-			@else
-			<button type="button" class="btn btn-sm btn-success disabled">Completada</button>
 			@endif
 		</div>
 	</div>
 </div>
+

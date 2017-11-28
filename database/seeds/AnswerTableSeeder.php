@@ -11,131 +11,108 @@ class AnswerTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
         DB::table('answer')->delete();
         
+        
         DB::table('answer')->insert([
             'question_id' => 1,
             'sort_order' => 0,
-            'answer' => 'Yes',
+            'answer' => 'Estoy de acuerdo',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
+
         DB::table('answer')->insert([
             'question_id' => 1,
             'sort_order' => 1,
-            'answer' => 'No',
+            'answer' => 'No estoy de acuerdo',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
+
         DB::table('answer')->insert([
             'question_id' => 1,
             'sort_order' => 2,
-            'answer' => 'Undecided',
+            'answer' => 'Indeciso',
+            'created_at' => date('Y-m-d H:m:s'),
+            'updated_at' => date('Y-m-d H:m:s'),
+        ]);
+
+        DB::table('answer')->insert([
+            'question_id' => 1,
+            'sort_order' => 2,
+            'answer' => 'Me da igual',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
         
+        //2
         DB::table('answer')->insert([
             'question_id' => 2,
             'sort_order' => 0,
-            'answer' => 'Always',
+            'answer' => 'Toyota',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
         DB::table('answer')->insert([
             'question_id' => 2,
             'sort_order' => 1,
-            'answer' => 'When surveilance will last longer than a set period of time',
+            'answer' => 'BMW',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
+
         DB::table('answer')->insert([
             'question_id' => 2,
             'sort_order' => 2,
-            'answer' => 'Not Sure',
+            'answer' => 'Mercedez Benz',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
+
         DB::table('answer')->insert([
             'question_id' => 2,
             'sort_order' => 3,
-            'answer' => 'Warrants aren\'t relevant any longer',
+            'answer' => 'Audi',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
-        
+
+        // 3
+
         DB::table('answer')->insert([
-            'question_id' => 4,
+            'question_id' => 3,
             'sort_order' => 0,
-            'answer' => 'Yes',
+            'answer' => 'Siempre',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
         DB::table('answer')->insert([
-            'question_id' => 4,
+            'question_id' => 3,
             'sort_order' => 1,
-            'answer' => 'No',
+            'answer' => 'Frecuentemente',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
+
         DB::table('answer')->insert([
-            'question_id' => 4,
+            'question_id' => 3,
             'sort_order' => 2,
-            'answer' => 'Undecided',
+            'answer' => 'Poco',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
-      
+
         DB::table('answer')->insert([
-            'question_id' => 5,
-            'sort_order' => 0,
-            'answer' => 'Yes',
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s'),
-        ]);
-        DB::table('answer')->insert([
-            'question_id' => 5,
-            'sort_order' => 1,
-            'answer' => 'No',
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s'),
-        ]);
-        
-        DB::table('answer')->insert([
-            'question_id' => 6,
-            'sort_order' => 0,
-            'answer' => 'Build a wall',
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s'),
-        ]);
-        DB::table('answer')->insert([
-            'question_id' => 6,
-            'sort_order' => 1,
-            'answer' => 'Hire more Border Patrol agents',
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s'),
-        ]);
-        DB::table('answer')->insert([
-            'question_id' => 6,
-            'sort_order' => 2,
-            'answer' => 'Penalize businesses who hire undocumented non-citizens',
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s'),
-        ]);
-        DB::table('answer')->insert([
-            'question_id' => 5,
+            'question_id' => 3,
             'sort_order' => 3,
-            'answer' => 'Hire and deputize citizens',
+            'answer' => 'Nunca',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s'),
         ]);
-        DB::table('answer')->insert([
-            'question_id' => 5,
-            'sort_order' => 4,
-            'answer' => 'Change immigration policy',
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s'),
-        ]);
+
+        */
         
         
         

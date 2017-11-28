@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\IssueModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class IssueController extends Controller
 {
@@ -48,7 +51,17 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Log::info($request->all());
+
+        $issue = new IssueModel; 
+        $issue->title = $request['title'];
+        $issue->motive = $request['motive'];
+        $issue->created_by_id = Auth::user()->id;
+    
+        
+        $result = $issue->save();
+
+        return redirect('/admin/issues/add')->with('status', 'Encuesta registrada correctamente');
     }
 
     /**
@@ -82,9 +95,8 @@ class IssueController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -94,7 +106,35 @@ class IssueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $issue = \App\IssueModel::findOrFail($id);
+
+        $issue->title = $request['title'];
+        $issue->motive = $request['motive'];
+        $issue->status = $request['status'];
+
+        $issue->save();
+
+        return redirect()->back()->with('status', 'Encuesta modificada correctamente');
+    }
+
+    public function saveResponse(Request $request){
+        
+        //return response()->json($request->all());
+
+        if(isset($request['answer'])){
+            $response = new \App\ResponseModel;
+            $response->user_id = Auth::user()->id;
+            $response->issue_id = $request['issue_id'];
+            $response->answer_id=$request['answer'];
+            $response->save();
+            return redirect('/')->with('success', 'Se ha completado la encuesta');
+        }
+        return redirect()->back()->with('warning', 'Por favor, seleccione una respuesta');
+
+       
+
+        
+        
     }
 
     /**

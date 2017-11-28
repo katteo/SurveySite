@@ -19,9 +19,9 @@ class UserTableSeeder extends Seeder
             'email'         => 'admin@surveysayz.com',
             'role'          => 'admin',
             'password'      => bcrypt('somesecret'),
-            'first_name'    => 'Mike',
-            'last_name'     => 'Maser',
-            'location'      => 'San Francisco, CA',
+            'first_name'    => 'Stefano',
+            'last_name'     => 'Bozzi',
+            'location'      => 'Puerto la Cruz, Anzoategui',
             'last_login'    => date('Y-m-d H:m:s'),
             'created_at'    => date('Y-m-d H:m:s'),
             'updated_at'    => date('Y-m-d H:m:s')
@@ -33,26 +33,13 @@ class UserTableSeeder extends Seeder
             'email'         => 'user@surveysayz.com',
             'role'          => 'user',
             'password'      => bcrypt('somesecret'),
-            'first_name'    => 'Peter',
-            'last_name'     => 'Flood',
-            'location'      => 'Mesa, CA',
+            'first_name'    => 'Luis',
+            'last_name'     => 'Fernando',
+            'location'      => 'Puerto la Cruz, Anzoategui',
             'last_login'    => date('Y-m-d H:m:s'),
             'created_at'    => date('Y-m-d H:m:s'),
             'updated_at'    => date('Y-m-d H:m:s')
         ]);
 
-        DB::table('users')->insert([
-            'user_status'   => 'active',
-            'username'      => 'contributor',
-            'email'         => 'contributor@surveysayz.com',
-            'role'          => 'contributor',
-            'password'      => bcrypt('somesecret'),
-            'first_name'    => 'Sarah',
-            'last_name'     => 'Connor',
-            'location'      => 'Madison, WI',
-            'last_login'    => date('Y-m-d H:m:s'),
-            'created_at'    => date('Y-m-d H:m:s'),
-            'updated_at'    => date('Y-m-d H:m:s')
-        ]); 
     }
 }

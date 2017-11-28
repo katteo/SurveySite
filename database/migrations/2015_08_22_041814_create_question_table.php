@@ -16,7 +16,6 @@ class CreateQuestionTable extends Migration
             $table->increments('id');
             $table->integer('issue_id')->unsigned();
             $table->smallInteger('sort_order');
-            $table->string('question_type');
             $table->string('question');
             $table->timestamps();
             $table->softDeletes();

@@ -15,7 +15,7 @@ class CreateIssueTable extends Migration
         Schema::create('issue', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('created_by_id')->unsigned();
-            $table->string('status', 24);
+            $table->string('status', 24)->default('suspended');
             $table->string('title');
             $table->text('motive');
             $table->timestamps();

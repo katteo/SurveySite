@@ -15,6 +15,7 @@ class CreateAnswerTable extends Migration
         Schema::create('answer', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('question_id')->unsigned();
+            $table->foreign('question_id')->references('id')->on('question');
             $table->smallInteger('sort_order');
             $table->string('answer');
             $table->timestamps();

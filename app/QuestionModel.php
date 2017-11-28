@@ -12,6 +12,9 @@ class QuestionModel extends Model
      * @var string
      */
     protected $table = "question";
+
+
+    protected $fillable = ['issue_id', 'question'];
     
     /**
      * The parent model
@@ -26,6 +29,6 @@ class QuestionModel extends Model
      */
     public function answers()
     {
-        return $this->hasMany('\App\AnswerModel', 'answer_id');
+        return $this->hasMany('\App\AnswerModel', 'question_id');
     }
 }

@@ -12,6 +12,8 @@ class AnswerModel extends Model
      * @var string
      */
     protected $table = "answer";
+
+    protected $fillable = ['question_id', 'answer'];
     
     /**
      * The parent model
