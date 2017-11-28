@@ -5,7 +5,7 @@
 			<div class="col-sm-6 col-sm-offset-3">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title">{{$question->question}}</h3>
+						<h3 class="panel-title">{{$issue->title}}</h3>
 					</div>
 					<div class="panel-body">
 						@if (session('success'))
@@ -18,13 +18,17 @@
 							{{ session('warning') }}
 						</div>
 						@endif
-						<input type="hidden" value="{{$issue->id}}" name="issue_id"> 
-						@foreach($answers as $key => $answer)
-						<div class="form-group radio">
-							<label>
-								<input type="radio" value="{{$answer->id}}" name="answer" class="icheck required">{{$answer->answer}}</label>
-						</div>
-						@endforeach
+						@foreach($data as $key => $question)
+							<h3>{{$question['question']->question}}</h3>
+							<input type="hidden" value="{{$issue->id}}" name="issue_id"> 
+							@foreach($question['answers'] as $key2 => $answer)
+							<div class="form-group radio">
+								<label>
+									<input type="radio" value="{{$answer->id}}" name="answer{{$question['question']->id}}" class="icheck required">{{$answer->answer}}</label>
+							</div>
+							@endforeach 
+						@endforeach	
+						
 					</div>
 				</div>
 			</div>

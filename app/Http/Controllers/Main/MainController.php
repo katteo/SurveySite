@@ -70,14 +70,17 @@ class MainController extends Controller
     public function show($id)
     {
         $issue = \App\IssueModel::find($id);
-        $question = \App\QuestionModel::where('issue_id', $id)->first();
-        Log::info($question);
+        $questions = \App\QuestionModel::where('issue_id', $id)->get();
+        
+        $collect = collect();
+        foreach($questions as $question){
+            $answers = \App\AnswerModel::where('question_id', $question->id)->get();
+            $collect->push(['question' => $question, 'answers' => $answers]);
+        }
 
-       // $answer=$question->answers();
-
-        $answers = \App\AnswerModel::where('question_id', $question->id)->get();
+        
                                         
-        return view('main.issue', ['issue' => $issue, 'question' => $question, 'answers' => $answers]);
+        return view('main.issue', ['issue' => $issue, 'data' => $collect->all()]);
     }
 
     /**

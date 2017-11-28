@@ -119,17 +119,28 @@ class IssueController extends Controller
 
     public function saveResponse(Request $request){
         
-        //return response()->json($request->all());
-
-        if(isset($request['answer'])){
-            $response = new \App\ResponseModel;
-            $response->user_id = Auth::user()->id;
-            $response->issue_id = $request['issue_id'];
-            $response->answer_id=$request['answer'];
-            $response->save();
-            return redirect('/')->with('success', 'Se ha completado la encuesta');
+       // return response()->json($request->all());
+        $questions = \App\QuestionModel::where('issue_id',$request['issue_id'])->get();
+        foreach($questions as $question){
+            Log::info($question->id);
+            if(!isset($request['answer'.$question->id])){
+                Log::info($request['answer'.$question->id]);
+                return redirect()->back()->with('warning', 'Por favor, seleccione todas las respuestas.');
+             
+            }
         }
-        return redirect()->back()->with('warning', 'Por favor, seleccione una respuesta');
+        foreach($questions as $question){
+                $response = new \App\ResponseModel;
+                $response->user_id = Auth::user()->id;
+                $response->issue_id = $request['issue_id'];
+                $response->answer_id=$request['answer'.$question->id];
+                $response->save();
+            
+        }
+        return redirect('/')->with('success', 'Se ha completado la encuesta');
+        
+       
+       
 
        
 

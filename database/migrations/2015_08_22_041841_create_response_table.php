@@ -20,7 +20,7 @@ class CreateResponseTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->integer('answer_id')->unsigned()->unique();
-            $table->foreign('answer_id')->references('id')->on('answer');
+             $table->foreign('answer_id')->references('id')->on('answer');
             
             $table->timestamps(); 
         });
